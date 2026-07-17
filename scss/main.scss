@@ -1,0 +1,262 @@
+// Importar parciales
+@use 'sass:color';
+@use 'variables' as v;
+@use 'mixins' as m;
+
+*{ margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+    font-family: v.$fuente-base;
+    background: v.$color-claro;
+    line-height: 1.6;
+    color: v.$color-oscuro;
+}
+
+// -- Header --
+.site-header {
+    background: #0d1b2a;
+    animation: aparecer .8s ease;
+
+}
+
+// Anidamiento: .nav dentro del header
+.nav {
+    @include m.contenedor;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 16px;
+    padding-bottom: 16px;
+
+}
+
+.logo { 
+    color: #ff5c39; 
+    font-weight: 700; 
+    text-decoration: none;
+    transition: transform .3s ease, color .3s ease;
+     
+}
+
+.logo:hover{
+    transform: scale(1.08);
+    color:#ffffff;
+}
+
+.nav__links {
+    display: flex;
+    gap: 22px;
+    list-style: none;
+
+    a {
+        color: #fff;
+        text-decoration: none;
+    }
+
+}
+
+// --- Subrayado animado en enlaces de navegación ---
+.nav-link {
+    position: relative;
+
+    &::after {
+        content: "";
+        position: absolute;
+        left: 0;
+        bottom: -4px;
+        width: 0;
+        height: 2px;
+        background: v.$color-primario;
+        transition: width 0.3s ease;
+    }
+
+    &:hover::after {
+        width: 100%;
+    }
+}
+
+.nav__toggle {
+    display: none;
+    background: none; border: none;
+    color: #fff; font-size: 1.4rem; cursor: pointer;
+}
+
+// --- Hero ---
+
+// 1. Fade-in del titulo
+@keyframes aparecer {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+}
+
+// 2. Slide-in del subtitulo
+@keyframes subir {
+    from { opacity: 0; transform: translateY(40px); }
+    to   { opacity: 1; transform: translateY(0); }
+}
+
+// 3. Pulso del boton CTA
+@keyframes pulso {
+    0%   { transform: scale(1); }
+    50%  { transform: scale(1.08); }
+    100% { transform: scale(1); }
+}
+
+// 9. Rebote del indicador de scroll
+@keyframes rebote {
+    0%, 100% { transform: translateY(0); }
+    50%      { transform: translateY(12px); }
+}
+
+.hero {
+    @include m.contenedor;
+    padding: 80px 20px;
+    text-align: center;
+
+    min-height: 70vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+
+    h1 {
+        font-size: 2.4rem;
+        margin-bottom: 14px;
+        animation: aparecer 1.5s ease-in forwards;
+    }
+
+    p {
+        color: #5a6472;
+        margin-bottom: 24px;
+    }
+
+    .hero__desc {
+        opacity: 0;
+        animation: subir 1.2s ease-out 0.5s forwards;
+    }
+
+    .btn {
+        @include m.boton(v.$color-primario);
+    }
+
+    // 3 y 4. Pulso continuo y transicion en hover del CTA
+    .cta {
+        animation: pulso 1.8s ease-in-out infinite;
+        transition: background-color 0.3s ease, transform 0.3s ease;
+
+        &:hover {
+            background: color.adjust(v.$color-primario, $lightness: -10%);
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(255,92, 57, .35);
+        }
+    }
+}
+
+// 9. Indicador de scroll
+.scroll-indicador {
+    position: absolute;
+    left: 50%;
+    bottom: 24px;
+    transform: translateX(-50%);
+    color: v.$color-primario;
+    font-size: 1.4rem;
+    animation: rebote 1.4s ease-in-out infinite;
+}
+
+
+
+// 6. Aparicion escalonada de las tarjetas
+@keyframes entrar {
+    from { opacity: 0; transform: translateY(30px); }
+    to   { opacity: 1; transform: translateY(0); }
+}
+
+// --- Recursos con grid ---
+.recursos {
+    @include m.contenedor;
+    padding: 40px 20px;
+    perspective: 1000px;
+
+    &__titulo {
+        text-align: center;
+        margin-bottom: 24px;
+    }
+}
+
+.cards {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+}
+
+ .card {
+    background: #fff;
+    border-radius: v.$radio;
+    padding: 24px;
+
+    // 5. Elevacion y sombra al pasar el cursor
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+
+    // 6. Entrada escalonada
+    opacity: 0;
+    animation: entrar 0.8s ease-out forwards;
+
+    &:nth-child(1) { animation-delay: 0.2s; }
+    &:nth-child(2) { animation-delay: 0.4s; }
+    &:nth-child(3) { animation-delay: 0.6s; }
+
+    // 7. Rotacion 3D al pasar el cursor
+    &:hover {
+        transform: translateY(-8px) rotateY(12deg) scale(1.03);
+        box-shadow: 0 12px 24px rgba(0, 0, 0, 0.18);
+    }
+ }
+
+ .sass-info {
+    @include m.contenedor;
+    padding: 40px 20px;
+    text-align: center;
+ }
+
+ // --- footer ---
+ .site-footer  p{
+    margin:0;
+    background: v.$color-oscuro;
+    color: #c3cdd8;
+    text-align:center;
+    padding: 24px;
+
+ }
+
+ // --- Responsive con el mixin de media query ---
+ @include m.movil {
+    .nav__links { display: none; }
+    .nav__toggle { display: block; }
+    .recursos .cards { grid-template-columns: 1fr; }
+    .hero h1 { font-size: 1.8rem;}
+ }
+
+ // 10. Aparicion al hacer scroll (activado por JS con IntersectionObserver)
+ .oculto {
+    opacity: 0;
+    transform: translateY(50px);
+    transition: opacity 0.8s ease, transform 0.8s ease;
+ }
+
+ .visible {
+    opacity: 1;
+    transform: translateY(0);
+ }
+
+ // Respeta la preferencia de movimiento reducido del usuario
+ @media (prefers-reduced-motion: reduce) {
+    * { animation: none !important; transition: none !important; }
+
+    // Evita que los elementos queden ocultos al cancelar la animacion que los revela
+    .hero__desc, .card, .oculto {
+        opacity: 1 !important;
+        transform: none !important;
+    }
+ }
+

@@ -1,0 +1,262 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "inter", sans-serif;
+  background: #f5f3ec;
+  line-height: 1.6;
+  color: #0d1b2a;
+}
+
+.site-header {
+  background: #0d1b2a;
+}
+
+.nav {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 16px;
+  padding-bottom: 16px;
+}
+
+.logo {
+  color: #ff5c39;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.nav__links {
+  display: flex;
+  gap: 22px;
+  list-style: none;
+}
+.nav__links a {
+  color: #fff;
+  text-decoration: none;
+}
+
+.nav-link {
+  position: relative;
+}
+.nav-link::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -4px;
+  width: 0;
+  height: 2px;
+  background: #ff5c39;
+  transition: width 0.3s ease;
+}
+.nav-link:hover::after {
+  width: 100%;
+}
+
+.nav__toggle {
+  display: none;
+  background: none;
+  border: none;
+  color: #fff;
+  font-size: 1.4rem;
+  cursor: pointer;
+}
+
+@keyframes aparecer {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+@keyframes subir {
+  from {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+@keyframes pulso {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.08);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+@keyframes rebote {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(12px);
+  }
+}
+.hero {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 20px;
+  padding: 80px 20px;
+  text-align: center;
+  min-height: 70vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+.hero h1 {
+  font-size: 2.4rem;
+  margin-bottom: 14px;
+  animation: aparecer 1.5s ease-in forwards;
+}
+.hero p {
+  color: #5a6472;
+  margin-bottom: 24px;
+}
+.hero .hero__desc {
+  opacity: 0;
+  animation: subir 1.2s ease-out 0.5s forwards;
+}
+.hero .btn {
+  display: inline-block;
+  background: #ff5c39;
+  color: #fff;
+  padding: 12px 26px;
+  border-radius: 100px;
+  text-decoration: none;
+  font-weight: 600;
+}
+.hero .cta {
+  animation: pulso 1.8s ease-in-out infinite;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+.hero .cta:hover {
+  background: rgb(255, 50.0151515152, 6);
+  transform: translateY(-3px);
+}
+
+.scroll-indicador {
+  position: absolute;
+  left: 50%;
+  bottom: 24px;
+  transform: translateX(-50%);
+  color: #ff5c39;
+  font-size: 1.4rem;
+  animation: rebote 1.4s ease-in-out infinite;
+}
+
+@keyframes entrar {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+.recursos {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 20px;
+  padding: 40px 20px;
+  perspective: 1000px;
+}
+.recursos__titulo {
+  text-align: center;
+  margin-bottom: 24px;
+}
+
+.cards {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+
+.card {
+  background: #fff;
+  border-radius: 12px;
+  padding: 24px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  opacity: 0;
+  animation: entrar 0.8s ease-out forwards;
+}
+.card:nth-child(1) {
+  animation-delay: 0.2s;
+}
+.card:nth-child(2) {
+  animation-delay: 0.4s;
+}
+.card:nth-child(3) {
+  animation-delay: 0.6s;
+}
+.card:hover {
+  transform: translateY(-8px) rotateY(12deg);
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.18);
+}
+
+.sass-info {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 20px;
+  padding: 40px 20px;
+  text-align: center;
+}
+
+.site-footer p {
+  margin: 0;
+  background: #0d1b2a;
+  color: #c3cdd8;
+  text-align: center;
+  padding: 24px;
+}
+
+@media (max-width: 600px) {
+  .nav__links {
+    display: none;
+  }
+  .nav__toggle {
+    display: block;
+  }
+  .recursos .cards {
+    grid-template-columns: 1fr;
+  }
+  .hero h1 {
+    font-size: 1.8rem;
+  }
+}
+.oculto {
+  opacity: 0;
+  transform: translateY(50px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation: none !important;
+    transition: none !important;
+  }
+  .hero__desc, .card, .oculto {
+    opacity: 1 !important;
+    transform: none !important;
+  }
+}/*# sourceMappingURL=main.css.map */
