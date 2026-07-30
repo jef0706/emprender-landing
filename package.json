@@ -1,0 +1,27 @@
+{
+  "name": "emprender-landing",
+  "version": "1.0.0",
+  "description": "Landing page dirigida a emprendedores, desarrollada como proyecto de las sesiones 13 a 16 del curso de Desarrollo Frontend de INTECAP.",
+  "main": "index.js",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jef0706/emprender-landing.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/jef0706/emprender-landing/issues"
+  },
+  "homepage": "https://github.com/jef0706/emprender-landing#readme",
+  "devDependencies": {
+    "typescript": "^7.0.2",
+    "vite": "^8.1.5"
+  }
+}

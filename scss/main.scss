@@ -325,9 +325,30 @@ body {
 
 // ================= RESPONSIVE =================
 
+// ================= RESPONSIVE =================
+
 @include m.movil {
+    .nav {
+        position: relative;
+    }
+
     .nav__links {
         display: none;
+        position: absolute;
+        top: 100%;
+        left: 20px;
+        right: 20px;
+        z-index: 10;
+        flex-direction: column;
+        gap: 14px;
+        padding: 20px;
+        background: #0d1b2a;
+        border-radius: v.$radio;
+        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+
+        &.is-open {
+            display: flex;
+        }
     }
 
     .nav__toggle {
