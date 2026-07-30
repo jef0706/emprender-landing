@@ -111,28 +111,94 @@
 
     </main>
 
+
     <!-- ================= FOOTER ================= -->
 
-    <footer class="site-footer" id="contacto">
+<footer class="site-footer" id="contacto">
 
-        <h2>¿Necesitas orientacion para tu emprendimiento?</h2>
+    <h2>¿Necesitas orientación para tu emprendimiento?</h2>
 
-        <p>
-            Contactanos para conocer nuestros recursos y encontrar
-             la mejor opcion para hacer crecer tu negocio.
-        </p>
+    <p>
+        Registra tus datos para conocer nuestros recursos
+        y encontrar la mejor opción para tu negocio.
+    </p>
 
-        <a href="mailto:contacto@emprende.com" class="btn">
-            Escribenos
-        </a>
-        
+    <form class="contact-form" id="formulario">
 
-        <p class="site-footer__copyright">
+        <div class="contact-form__group">
+            <label for="nombre">Nombre</label>
 
-            2026 Landing page - proyecto    SASS
-        </p>
-    </footer>
+            <input
+                id="nombre"
+                name="nombre"
+                type="text"
+                placeholder="Escribe tu nombre"
+                required
+            >
+        </div>
 
+        <div class="contact-form__group">
+            <label for="correo">Correo electrónico</label>
+
+            <input
+                id="correo"
+                name="correo"
+                type="email"
+                placeholder="ejemplo@correo.com"
+                required
+            >
+        </div>
+
+        <div class="contact-form__group">
+            <label for="plan">Plan de interés</label>
+
+            <select id="plan" name="plan">
+                <option value="gratis">Gratis</option>
+                <option value="emprendedor">
+                    Emprendedor
+                </option>
+                <option value="empresa">Empresa</option>
+            </select>
+        </div>
+
+        <button class="btn" type="submit">
+            Registrarme
+        </button>
+
+    </form>
+
+    <p
+        class="contact-form__error"
+        id="error"
+        aria-live="polite"
+    ></p>
+
+    <div class="contact-actions">
+
+        <button class="btn" id="guardar" type="button">
+            Descargar contactos JSON
+        </button>
+
+        <label class="btn" for="cargar">
+            Cargar contactos JSON
+        </label>
+
+        <input
+            id="cargar"
+            type="file"
+            accept="application/json"
+            hidden
+        >
+
+    </div>
+
+    <ul class="contact-list" id="lista-contactos"></ul>
+
+    <p class="site-footer__copyright">
+        2026 Landing page - Proyecto TypeScript y POO
+    </p>
+
+</footer>
     <script type="module" src="/src/main.ts"></script>
 
 </body>
