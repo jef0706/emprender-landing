@@ -1,72 +1,123 @@
 # Landing Page para Emprendedores
 
-Landing page dirigida a emprendedores, desarrollada como proyecto de las sesiones 13 a 16 del curso de Desarrollo Frontend de INTECAP.
+Landing page dirigida a emprendedores que desean encontrar recursos, herramientas y orientación para iniciar o mejorar sus negocios.
 
-El proyecto utiliza HTML, SASS y JavaScript. Durante esta actividad se incorporarán control de versiones con Git y GitHub, TypeScript y Programación Orientada a Objetos.
+El sitio fue desarrollado como proyecto del curso de Desarrollo Frontend de INTECAP y aplica HTML5, SASS, JavaScript, TypeScript, Programación Orientada a Objetos, Vite, Git y GitHub.
+
+## Objetivo
+
+Crear un sitio web dinámico, responsivo, amigable y funcional que permita presentar recursos para emprendedores y registrar datos mediante un formulario validado.
 
 ## Requerimientos funcionales
 
-* Mostrar un menú de navegación con acceso a Inicio, Recursos, SASS y Contacto.
-* Permitir abrir y cerrar el menú de navegación en dispositivos móviles.
-* Mostrar una sección principal con información y un botón de llamado a la acción.
-* Permitir desplazarse desde el botón “Empezar” hasta el contenido principal.
-* Presentar recursos para emprendedores mediante tarjetas informativas.
-* Mostrar animaciones y transiciones al visualizar las secciones.
-* Resaltar de manera visual los elementos interactivos.
-* Incorporar posteriormente un formulario para registrar contactos.
-* Validar los datos ingresados en el formulario.
-* Permitir guardar y leer los contactos en formato JSON.
+- Mostrar un menú de navegación con acceso a las secciones del sitio.
+- Permitir abrir y cerrar el menú en dispositivos móviles.
+- Mostrar una sección principal con un llamado a la acción.
+- Desplazarse desde el botón “Empezar” hasta el contenido principal.
+- Presentar recursos mediante tarjetas informativas.
+- Mostrar animaciones y transiciones al visualizar las secciones.
+- Validar los datos ingresados en el formulario.
+- Administrar los datos utilizando Programación Orientada a Objetos.
+- Representar la información registrada en formato JSON.
 
 ## Requerimientos no funcionales
 
-* La página debe ser amigable, intuitiva y fácil de utilizar.
-* El diseño debe adaptarse a computadoras, tabletas y teléfonos.
-* Los estilos deben estar organizados con SASS.
-* El código JavaScript será migrado a TypeScript.
-* TypeScript debe utilizar el modo estricto.
-* La lógica se organizará aplicando Programación Orientada a Objetos.
-* El proyecto debe mantenerse bajo control de versiones con Git.
-* Los avances deben publicarse en GitHub.
+- La página debe ser amigable, intuitiva y fácil de utilizar.
+- El diseño debe adaptarse a computadoras, tabletas y teléfonos.
+- Los estilos deben estar organizados con SASS.
+- SASS debe utilizar variables, mixins y anidamiento.
+- TypeScript debe utilizar el modo estricto.
+- El sitio debe incluir animaciones, transiciones y transformaciones.
+- El proyecto debe mantenerse bajo control de versiones con Git.
+- Los avances deben publicarse en GitHub mediante commits descriptivos.
 
 ## Estructura del sitio
 
-* **Encabezado:** contiene el logotipo y el menú de navegación.
-* **Sección hero:** presenta el título principal, la descripción y el botón “Empezar”.
-* **Recursos:** muestra tarjetas con asesoría, plantillas y comunidad para emprendedores.
-* **Información de SASS:** explica el uso de variables, mixins y anidamiento.
-* **Pie de página:** muestra la información final del proyecto y funciona como sección de contacto.
+- **Encabezado:** contiene el logotipo y el menú de navegación.
+- **Sección hero:** presenta el título, la descripción y el botón “Empezar”.
+- **Recursos:** muestra tarjetas con asesoría, plantillas y comunidad.
+- **Información de SASS:** explica el uso de variables, mixins y anidamiento.
+- **Formulario:** permite registrar y validar la información del usuario.
+- **Pie de página:** presenta la información final del proyecto.
 
-## Partes dinámicas
+## Tecnologías y justificación
 
-La lógica actual se encuentra en `js/main.js` y controla:
+| Tecnología | Por qué la utilizamos |
+|---|---|
+| HTML5 semántico | Permite crear una estructura clara, ordenada y accesible |
+| CSS3 | Aplica la presentación visual y los estilos finales del sitio |
+| SASS | Organiza los estilos mediante variables, mixins y anidamiento |
+| Media Queries | Adaptan el diseño a celular, tableta y computadora |
+| JavaScript | Añade interactividad y permite aplicar POO en una sección |
+| TypeScript | Proporciona tipado, mayor seguridad y clases mejor organizadas |
+| Programación Orientada a Objetos | Organiza la lógica mediante clases, propiedades y métodos |
+| Animaciones CSS | Mejoran la experiencia mediante movimiento aplicado con moderación |
+| Vite | Ejecuta y compila el proyecto durante el desarrollo |
+| Git | Registra el historial de cambios realizados en el proyecto |
+| GitHub | Respalda el repositorio y permite publicar sus versiones |
 
-* El menú de navegación para dispositivos móviles.
-* Las animaciones de aparición de los elementos.
-* La interacción de algunos elementos del sitio.
+## Organización principal de archivos
 
-## Tecnologías
+```text
+emprender-landing/
+├── docs/
+│   └── BOCETO.md
+├── scss/
+│   ├── _mixins.scss
+│   ├── _variables.scss
+│   ├── main.scss
+│   └── main.css
+├── src/
+│   ├── formulario.ts
+│   ├── main.ts
+│   ├── modelos.ts
+│   └── tipos.ts
+├── index.html
+├── REQUERIMIENTOS.md
+├── README.md
+├── package.json
+└── tsconfig.json
+```
 
-* HTML5
-* CSS3
-* SASS
-* JavaScript
-* Git y GitHub
-* TypeScript
-* Programación Orientada a Objetos
+## Funcionalidades dinámicas
 
-## Cómo ejecutar el proyecto actualmente
+La lógica desarrollada controla:
 
-1. Descargar o clonar el repositorio.
-2. Abrir la carpeta del proyecto en Visual Studio Code.
-3. Abrir `index.html` con Live Server.
+- El menú de navegación para dispositivos móviles.
+- El desplazamiento hacia las secciones.
+- Las animaciones de aparición de los elementos.
+- La validación del formulario.
+- La creación de objetos mediante clases.
+- El manejo de información en formato JSON.
 
-## Ejecución después de integrar TypeScript
+## Cómo ejecutar el proyecto
 
-1. Ejecutar `npm install`.
-2. Ejecutar `npm run dev`.
-3. Abrir la dirección local mostrada por la terminal.
+1. Clonar o descargar el repositorio.
+2. Abrir la carpeta en Visual Studio Code.
+3. Abrir la terminal integrada.
+4. Instalar las dependencias:
+
+```bash
+npm install
+```
+
+5. Iniciar el servidor de desarrollo:
+
+```bash
+npm run dev
+```
+
+6. Abrir en el navegador la dirección local mostrada por la terminal.
+
+## Compilar la versión final
+
+```bash
+npm run build
+```
+
+La versión optimizada del sitio se genera en la carpeta `dist`.
 
 ## Autor
 
-Jefte Alexander Gómez Rodas
+Jefte Alexander Gómez Rodas  
 Desarrollo Frontend — INTECAP
