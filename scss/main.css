@@ -39,7 +39,7 @@ body {
   transition: transform 0.3s ease, color 0.3s ease;
 }
 .logo:hover {
-  transform: scale(1.08);
+  transform: scale(1.04);
   color: #ffffff;
 }
 
@@ -161,7 +161,7 @@ body {
   font-weight: 600;
 }
 .hero .cta {
-  animation: pulso 1.8s ease-in-out infinite;
+  animation: pulso 2.5s ease-in-out infinite;
   transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
 }
 .hero .cta:hover {

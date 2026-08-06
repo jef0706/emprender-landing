@@ -48,7 +48,7 @@ body {
         color 0.3s ease;
 
     &:hover {
-        transform: scale(1.08);
+        transform: scale(1.04);
         color: #ffffff;
     }
 }
@@ -187,7 +187,7 @@ body {
     }
 
     .cta {
-        animation: pulso 1.8s ease-in-out infinite;
+        animation: pulso 2.5s ease-in-out infinite;
         transition:
             background-color 0.3s ease,
             transform 0.3s ease,
