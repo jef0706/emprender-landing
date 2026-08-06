@@ -513,6 +513,9 @@ body {
 
 // ================= RESPONSIVE =================
 
+// ================= RESPONSIVE =================
+
+// MÓVIL: hasta 767px
 @include m.movil {
     .nav {
         position: relative;
@@ -543,7 +546,7 @@ body {
         display: block;
     }
 
-    .recursos .cards {
+    .cards {
         grid-template-columns: 1fr;
     }
 
@@ -582,6 +585,33 @@ body {
 
     #lista-contactos li {
         padding-right: 14px;
+    }
+}
+
+// TABLETA: 768px a 1023px
+@include m.tablet {
+    .cards {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .hero {
+        min-height: 70vh;
+        padding: 80px 32px;
+    }
+
+    #formulario {
+        padding: 28px;
+    }
+}
+
+// ESCRITORIO: desde 1024px
+@include m.escritorio {
+    .cards {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    .hero {
+        padding: 90px 20px;
     }
 }
 
